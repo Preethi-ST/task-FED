@@ -12,7 +12,7 @@ export const TodoContextProvider = ({children}) => {
     const [compTask,setCompTask] = useState([])
 
     async function getTodoData() {
-        await axios.get(`${process.env.REACT_APP_BE_SERVER_URL}/api/todo/allTask`)
+        await axios.get(`https://task-bed.herokuapp.com/api/todo/allTask`)
             .then(res => {
                 console.log(res.data)
                 /* setAllTask(res.data.alltask) */
