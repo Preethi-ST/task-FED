@@ -19,7 +19,7 @@ function TaskForm() {
     const taskid = useParams();
     console.log(taskid)
     const getTask = async () => {
-        let task_to_be_updated = await axios.get(`${process.env.REACT_APP_BE_SERVER_URL}/api/todo/gettask/${taskid.id}`)
+        let task_to_be_updated = await axios.get(`https://task-bed.herokuapp.com/api/todo/gettask/${taskid.id}`)
         setEditTask(task_to_be_updated.data.task)
         console.log(task_to_be_updated.data.task)
     }
@@ -53,11 +53,11 @@ function TaskForm() {
         const {title,description,status} = values
         try {
             if(!pathFlag){
-                result = await axios.post(`${process.env.REACT_APP_BE_SERVER_URL}/api/todo/createTask`,{
+                result = await axios.post(`https://task-bed.herokuapp.com/api/todo/createTask`,{
                     title,description,status
                 })
             }else{
-                result = await axios.patch(`${process.env.REACT_APP_BE_SERVER_URL}/api/todo/update/${taskid.id}`,{
+                result = await axios.patch(`https://task-bed.herokuapp.com/api/todo/update/${taskid.id}`,{
                     title,description,status
                 })
             }
