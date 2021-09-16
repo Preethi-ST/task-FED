@@ -10,7 +10,7 @@ function TaskCard({task}) {
     const handleDelete = async () => {
         try {
             console.log(task._id)
-            let result = await axios.delete(`${process.env.REACT_APP_BE_SERVER_URL}/api/todo/removeTask/${task._id}`)
+            let result = await axios.delete(`https://task-bed.herokuapp.com/api/todo/removeTask/${task._id}`)
             toast(result.data.message,{
                 position: "top-right",
                 autoClose : 1000
